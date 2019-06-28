@@ -6,12 +6,13 @@ module.exports = {
     find_by,
 }
 
-async function insert(hobbit) {
-    return null
+async function insert(benson) {
+    const [id] = await db('testing').insert(benson)
+    return find_by({id})
 }
-async function get_all() {
-    return null
+function get_all() {
+    return db('testing')
 }
-async function find_by(thing) {
-    return null
+function find_by(thing) {
+    return db('testing').where(thing).first()
 }
